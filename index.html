@@ -35,7 +35,7 @@
     </nav>
 
     <div class="header-cta">
-      <button type="button" class="btn btn-ghost payment-trigger">Register</button>
+      <a href="https://rzp.io/rzp/RQoClyz" class="btn btn-ghost">Enroll Now ₹1,999</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
     </div>
   </div>
@@ -53,7 +53,7 @@
         <p class="hero-sub">Enjoy Creator Academy teaches you what AI actually is, why it matters, and exactly how to use it — from your first prompt to a full AI-powered content business. No jargon. No fluff. Just skills you can use today.</p>
 
         <div class="hero-actions">
-          <button type="button" class="btn btn-primary payment-trigger">Join the 15-Day Live Class</button>
+          <a href="https://rzp.io/rzp/RQoClyz" class="btn btn-primary">Enroll Now ₹1,999</a>
           <a href="#courses" class="btn btn-ghost">See what we teach</a>
         </div>
 
@@ -150,7 +150,7 @@
           </div>
 
           <div class="reg-card">
-            <span class="badge-dates">Limited seats</span>
+            <span class="badge-dates">LIMITED SEATS ONLY AVAILABLE — RESERVE SOON</span>
             <div class="price-row">
               <span class="price-old">₹10,999</span>
               <span class="price-new">₹1,999</span>
@@ -164,7 +164,7 @@
               <div class="cd-box"><b id="cd-secs">00</b><span>secs</span></div>
             </div>
 
-            <button type="button" class="btn btn-primary btn-block payment-trigger">Register Now</button>
+            <a href="https://rzp.io/rzp/RQoClyz" class="btn btn-primary btn-block">Enroll Now ₹1,999</a>
 
             <div class="reg-meta">
               <span>📅 16 – 23 September 2026</span>
@@ -404,93 +404,6 @@
 
 <script src="script.js"></script>
 
-<!-- ================= PAYMENT MODAL ================= -->
-<div class="payment-modal" id="paymentModal" aria-hidden="true">
-  <div class="payment-backdrop" data-close-payment></div>
 
-  <div class="payment-box" role="dialog" aria-modal="true" aria-labelledby="paymentTitle">
-    <button class="payment-close" type="button" aria-label="Close payment" data-close-payment>&times;</button>
-
-    <div class="payment-header">
-      <div class="payment-icon">₹</div>
-      <div>
-        <span class="payment-kicker">ENJOY CREATOR ACADEMY</span>
-        <h3 id="paymentTitle">Complete Your Registration</h3>
-        <p>Secure payment via Razorpay for your live master class.</p>
-      </div>
-    </div>
-
-    <div class="payment-summary">
-      <div>
-        <span>15 Days AI Video Creation Master Class</span>
-        <small>One-time registration fee</small>
-      </div>
-      <strong>₹1,999</strong>
-    </div>
-
-    <div class="qr-card">
-      <div class="scan-badge">SECURE PAYMENT</div>
-      <p style="margin:16px 0; color:var(--text-dim);">Complete your registration securely through Razorpay.</p>
-      <a href="https://rzp.io/rzp/RQoClyz" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block">Enroll Now ₹1,999</a>
-    </div>
-
-
-    <a href="upi://pay?pa=6381046840%40ibl&pn=ENJOY%20CREATOR%20ACADEMY&am=1999&cu=INR" class="btn btn-primary btn-block direct-upi-btn">Open UPI App & Pay ₹1,999</a>
-    <p class="direct-upi-help">Mobile users can tap this button to open their UPI payment app directly.</p>
-
-    <div class="payment-steps">
-      <div class="payment-step"><b>1</b><span>Scan QR</span></div>
-      <div class="payment-step"><b>2</b><span>Pay ₹1,999</span></div>
-      <div class="payment-step"><b>3</b><span>Continue</span></div>
-    </div>
-
-    <a href="https://forms.gle/KjBSbk3S2QZ39iEz9" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block payment-complete">I Have Completed Payment</a>
-
-    <p class="payment-note">Please complete the payment before opening the registration form.</p>
-  </div>
-</div>
-
-<style>
-.payment-trigger{cursor:pointer;border:0;font:inherit}
-.payment-modal{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:20px}
-.payment-modal.is-open{display:flex}
-.payment-backdrop{position:absolute;inset:0;background:rgba(3,7,18,.78);backdrop-filter:blur(10px)}
-.payment-box{position:relative;width:min(470px,100%);max-height:92vh;overflow:auto;border-radius:28px;padding:28px;background:linear-gradient(145deg,#121a2c,#070b14);color:#fff;border:1px solid rgba(255,255,255,.12);box-shadow:0 30px 100px rgba(0,0,0,.65);animation:paymentIn .25s ease-out}
-@keyframes paymentIn{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
-.payment-close{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:#fff;font-size:26px;cursor:pointer;line-height:1}
-.payment-header{display:flex;align-items:center;gap:14px;padding-right:42px;text-align:left}
-.payment-icon{width:54px;height:54px;display:grid;place-items:center;border-radius:17px;background:linear-gradient(135deg,#7c3aed,#2563eb);font-size:28px;font-weight:800;box-shadow:0 12px 30px rgba(92,73,255,.35);flex:0 0 auto}
-.payment-kicker{display:block;font-size:10px;letter-spacing:1.6px;font-weight:800;color:#aab5c8;margin-bottom:5px}
-.payment-header h3{margin:0;font-size:25px;line-height:1.15}
-.payment-header p{margin:6px 0 0;color:#aeb7c7;font-size:12px;line-height:1.45}
-.payment-summary{margin:22px 0 16px;padding:16px;border-radius:18px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;gap:14px;text-align:left}
-.payment-summary span{display:block;font-size:13px;color:#e7eaf0;line-height:1.35}
-.payment-summary small{display:block;margin-top:4px;color:#8e98aa;font-size:11px}
-.payment-summary strong{font-size:28px;white-space:nowrap}
-.qr-card{padding:20px 18px 16px;border-radius:24px;background:linear-gradient(180deg,#fff,#f5f7fb);color:#10131a;text-align:center;box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)}
-.scan-badge{display:inline-block;padding:6px 10px;border-radius:999px;background:#eef1ff;color:#4f46e5;font-size:10px;font-weight:800;letter-spacing:1.5px;margin-bottom:12px}
-.qr-frame{width:min(285px,78vw);margin:0 auto;padding:10px;border-radius:18px;background:#fff;border:1px solid #e3e7ef;box-shadow:0 10px 30px rgba(0,0,0,.08)}
-.payment-qr{display:block;width:100%;height:auto;border-radius:10px}
-.qr-caption{margin:13px 0 0;font-size:12px;line-height:1.45;color:#667085}
-.payment-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:17px 0}
-.payment-step{padding:11px 7px;border-radius:14px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07);text-align:center;color:#c9d0dc;font-size:10px}
-.payment-step b{display:grid;place-items:center;width:23px;height:23px;margin:0 auto 6px;border-radius:50%;background:rgba(124,58,237,.25);color:#fff;font-size:11px}
-.payment-complete{display:block;text-align:center;padding-top:15px!important;padding-bottom:15px!important;font-weight:800!important}
-.payment-note{margin:12px auto 0!important;max-width:340px;text-align:center;font-size:11px!important;color:#8f98aa!important;line-height:1.45!important}
-.direct-upi-btn{display:none!important;text-align:center;margin:16px 0 4px!important;padding-top:15px!important;padding-bottom:15px!important;font-weight:800!important}.direct-upi-help{display:none;margin:0 0 12px!important;text-align:center;font-size:11px!important;color:#aeb7c7!important}@media(max-width:768px){.direct-upi-btn{display:block!important}.direct-upi-help{display:block}}
-body.payment-open{overflow:hidden}
-@media(max-width:480px){.payment-box{padding:22px 16px;border-radius:24px}.payment-header h3{font-size:22px}.payment-summary strong{font-size:24px}.payment-icon{width:48px;height:48px;font-size:25px}}
-</style>
-
-<script>
-(function(){
-  const modal=document.getElementById('paymentModal');
-  const open=()=>{modal.classList.add('is-open');modal.setAttribute('aria-hidden','false');document.body.classList.add('payment-open');};
-  const close=()=>{modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true');document.body.classList.remove('payment-open');};
-  document.querySelectorAll('.payment-trigger').forEach(btn=>btn.addEventListener('click',open));
-  document.querySelectorAll('[data-close-payment]').forEach(el=>el.addEventListener('click',close));
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
-})();
-</script>
 </body>
 </html>
