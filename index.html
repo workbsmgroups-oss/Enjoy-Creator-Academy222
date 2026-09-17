@@ -1,5 +1,5 @@
+```html
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -20,29 +20,138 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
-/* ================= SIGN IN NAV BUTTON ================= */
+
+/* =========================================================
+   PREMIUM SIGN IN BUTTON
+========================================================= */
 
 .nav-signin {
+  position:relative;
   display:inline-flex !important;
   align-items:center;
   justify-content:center;
-  padding:9px 17px;
-  border:1px solid rgba(255,255,255,.55);
-  border-radius:10px;
+
+  padding:10px 20px !important;
+  min-width:92px;
+
   color:#fff !important;
-  background:rgba(255,255,255,.04);
-  font-weight:700;
-  transition:all .25s ease;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.16),
+      rgba(255,255,255,.035)
+    ) !important;
+
+  border:1px solid rgba(255,255,255,.5) !important;
+  border-radius:12px !important;
+
+  font-weight:700 !important;
+  font-size:13px;
+  letter-spacing:.5px;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.18),
+    0 6px 24px rgba(0,0,0,.25);
+
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+
+  overflow:hidden;
+
+  transition:
+    transform .3s ease,
+    background .3s ease,
+    border-color .3s ease,
+    box-shadow .3s ease;
 }
+
+
+/* Animated shine */
+
+.nav-signin::before {
+  content:"";
+  position:absolute;
+
+  top:0;
+  left:-130%;
+
+  width:75%;
+  height:100%;
+
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.35),
+    transparent
+  );
+
+  transform:skewX(-20deg);
+
+  transition:left .7s ease;
+}
+
+
+/* Small premium glow */
+
+.nav-signin::after {
+  content:"";
+
+  position:absolute;
+  inset:-1px;
+
+  border-radius:12px;
+
+  background:linear-gradient(
+    120deg,
+    rgba(255,255,255,.25),
+    transparent 35%,
+    transparent 65%,
+    rgba(255,255,255,.12)
+  );
+
+  pointer-events:none;
+}
+
+
+/* Hover */
 
 .nav-signin:hover {
-  background:#fff;
+
   color:#050505 !important;
-  border-color:#fff;
-  transform:translateY(-1px);
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #e9e9e9
+    ) !important;
+
+  border-color:#fff !important;
+
+  transform:translateY(-3px);
+
+  box-shadow:
+    0 12px 35px rgba(255,255,255,.16),
+    0 8px 25px rgba(0,0,0,.3);
 }
 
-/* ================= COURSE SYLLABUS ================= */
+
+.nav-signin:hover::before {
+  left:145%;
+}
+
+
+/* Click */
+
+.nav-signin:active {
+  transform:translateY(-1px) scale(.97);
+}
+
+
+/* =========================================================
+   COURSE SYLLABUS
+========================================================= */
 
 .course-syllabus {
   margin-top:42px;
@@ -57,36 +166,55 @@
 
 .syllabus-card {
   position:relative;
+
   padding:25px;
+
   border:1px solid rgba(255,255,255,.09);
   border-radius:18px;
-  background:linear-gradient(
-    145deg,
-    rgba(255,255,255,.055),
-    rgba(255,255,255,.018)
-  );
-  transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.055),
+      rgba(255,255,255,.018)
+    );
+
+  transition:
+    transform .3s ease,
+    border-color .3s ease,
+    box-shadow .3s ease;
 }
 
 .syllabus-card:hover {
   transform:translateY(-5px);
+
   border-color:rgba(255,255,255,.25);
-  box-shadow:0 18px 45px rgba(0,0,0,.25);
+
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.25);
 }
 
 .lesson-number {
   display:inline-flex;
   align-items:center;
   justify-content:center;
+
   min-width:74px;
+
   padding:6px 10px;
+
   border-radius:8px;
+
   background:rgba(255,255,255,.08);
   border:1px solid rgba(255,255,255,.12);
+
   font-family:"JetBrains Mono",monospace;
+
   font-size:11px;
   font-weight:700;
+
   letter-spacing:.5px;
+
   margin-bottom:14px;
 }
 
@@ -96,20 +224,32 @@
 
 .syllabus-card p {
   margin:0;
+
   color:var(--text-dim);
+
   line-height:1.7;
 }
 
+
+/* =========================================================
+   COURSE ACCESS
+========================================================= */
+
 .course-access {
   margin-top:50px;
+
   padding:34px;
+
   border-radius:22px;
+
   border:1px solid rgba(255,255,255,.12);
-  background:linear-gradient(
-    135deg,
-    rgba(255,255,255,.07),
-    rgba(255,255,255,.025)
-  );
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.07),
+      rgba(255,255,255,.025)
+    );
 }
 
 .course-access h3 {
@@ -118,10 +258,14 @@
 
 .access-list {
   list-style:none;
+
   padding:0;
   margin:22px 0 28px;
+
   display:grid;
+
   grid-template-columns:repeat(2,minmax(0,1fr));
+
   gap:12px;
 }
 
@@ -129,40 +273,51 @@
   color:var(--text-dim);
 }
 
-.access-list li::first-letter {
-  color:#fff;
-}
-
 .one-time {
   border-top:1px solid rgba(255,255,255,.1);
+
   padding-top:25px;
 }
 
 .one-time-label {
   display:block;
+
   font-size:13px;
+
   text-transform:uppercase;
+
   letter-spacing:1.5px;
+
   opacity:.7;
+
   margin-bottom:8px;
 }
 
 .one-time-price {
   display:block;
+
   font-size:46px;
+
   line-height:1;
+
   font-weight:700;
+
   margin-bottom:10px;
 }
 
 .one-time-note {
   color:var(--text-dim);
+
   margin-bottom:22px;
 }
 
-/* ================= RESPONSIVE ================= */
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width:760px) {
+
   .syllabus-grid,
   .access-list {
     grid-template-columns:1fr;
@@ -177,623 +332,257 @@
   }
 
   .nav-signin {
-    padding:8px 13px;
+    width:100%;
+
+    min-width:0;
+
+    padding:12px 18px !important;
+
+    border-radius:12px !important;
   }
+
 }
+
 </style>
 
 </head>
 
+
 <body>
 
-<!-- ================= HEADER ================= -->
+
+<!-- =======================================================
+     HEADER
+======================================================= -->
 
 <header class="site-header" id="siteHeader">
 
 <div class="container">
 
+
 <a href="#top" class="brand">
 
 <span class="brand-mark">
-<img src="ecalogo.jpg" alt="Enjoy Creator Academy Logo" height="40" width="40">
+
+<img
+src="ecalogo.jpg"
+alt="Enjoy Creator Academy Logo"
+height="40"
+width="40">
+
 </span>
 
+
 <span>
+
 ENJOY CREATOR ACADEMY
-<small>Learn · Create · Grow</small>
+
+<small>
+Learn · Create · Grow
+</small>
+
 </span>
 
 </a>
+
 
 <nav class="nav-links" id="navLinks">
 
-<!-- 1st OPTION — SIGN IN -->
 
-<a href="https://ecalearningportal.online" class="nav-signin" target="_blank" rel="noopener noreferrer">
+<!-- PREMIUM SIGN IN -->
+
+<a
+href="https://ecalearningportal.online"
+class="nav-signin"
+target="_blank"
+rel="noopener noreferrer">
+
 Sign In
+
 </a>
 
-<a href="#courses">Courses</a>
 
-<a href="#mentor">Mentor</a>
-
-<a href="#feedback">Students</a>
-
-<a href="https://srirammarudhaiyappan.online" target="_blank" rel="noopener noreferrer">
-Visit Sriram Marudhaiyappan
+<a href="#courses">
+Courses
 </a>
 
-<a href="#faq">FAQ</a>
 
-<a href="#contact">Contact</a>
+<a href="#mentor">
+Mentor
+</a>
+
+
+<a href="#feedback">
+Students
+</a>
+
+
+<a
+href="https://srirammarudhaiyappan.online"
+target="_blank"
+rel="noopener noreferrer">
+
+Visit Sriram
+
+</a>
+
+
+<a href="#faq">
+FAQ
+</a>
+
+
+<a href="#contact">
+Contact
+</a>
+
 
 </nav>
 
+
 <div class="header-cta">
 
-<a href="https://rzp.io/rzp/RQoClyz" class="btn btn-ghost">
+
+<a
+href="https://rzp.io/rzp/Upp96JYM"
+class="btn btn-ghost">
+
 Enroll Now ₹999
+
 </a>
 
-<button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+
+<button
+class="nav-toggle"
+id="navToggle"
+aria-label="Toggle menu"
+aria-expanded="false">
+
 <span></span>
+
 </button>
 
+
 </div>
+
 
 </div>
 
 </header>
 
+
+
 <main id="top">
 
-<!-- ================= HERO ================= -->
+
+<!-- =======================================================
+     HERO
+======================================================= -->
 
 <section class="hero">
 
-<canvas class="hero-network" id="heroNetwork" aria-hidden="true"></canvas>
+<canvas
+class="hero-network"
+id="heroNetwork"
+aria-hidden="true">
+</canvas>
+
 
 <div class="container">
+
 
 <div class="hero-copy">
 
+
 <span class="hero-eyebrow">
-Tamil Nadu's practical <strong>AI</strong> creator academy
+
+Tamil Nadu's practical
+<strong>AI</strong>
+creator academy
+
 </span>
 
+
 <h1>
+
 Learn AI.<br>
-Create <span class="accent">without limits.</span>
+
+Create
+<span class="accent">
+without limits.
+</span>
+
 </h1>
 
+
 <p class="hero-sub">
-Enjoy Creator Academy teaches you what AI actually is, why it matters, and exactly how to use it — from your first prompt to professional AI-powered content creation. No jargon. No fluff. Just skills you can use today.
+
+Enjoy Creator Academy teaches you what AI actually is,
+why it matters, and exactly how to use it — from your
+first prompt to professional AI-powered content creation.
+No jargon. No fluff. Just skills you can use today.
+
 </p>
+
 
 <div class="hero-actions">
 
-<a href="https://rzp.io/rzp/RQoClyz" class="btn btn-primary">
+
+<a
+href="https://rzp.io/rzp/Upp96JYM"
+class="btn btn-primary">
+
 Enroll Now ₹999
+
 </a>
 
-<a href="#courses" class="btn btn-ghost">
+
+<a
+href="#courses"
+class="btn btn-ghost">
+
 See what we teach
+
 </a>
+
 
 </div>
+
 
 <div class="hero-stats reveal">
 
-<div class="stat">
-<b>200+</b>
-<span>creators trained in 2026</span>
-</div>
 
 <div class="stat">
-<b>16</b>
-<span>complete AI video creation lessons</span>
-</div>
 
-<div class="stat">
-<b>17</b>
-<span>age Enjoy Creator Academy was founded</span>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= WHAT WE TEACH ================= -->
-
-<section class="section" id="courses">
-
-<div class="container">
-
-<div class="section-head reveal">
-
-<span class="kicker">What we teach</span>
-
-<h2>
-Everything you need to work with AI, in one place.
-</h2>
-
-<p>
-From understanding what AI is to creating professional AI-powered videos, every lesson is hands-on, practical, and built for real output.
-</p>
-
-</div>
-
-<div class="course-grid reveal">
-
-<article class="course-card">
-
-<div class="course-icon">
-
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
-
-<circle cx="12" cy="12" r="3"/>
-
-<path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/>
-
-</svg>
-
-</div>
-
-<h3>What is AI &amp; why it matters</h3>
-
-<p>
-Build a real, working understanding of artificial intelligence and how to use it properly.
-</p>
-
-</article>
-
-<article class="course-card">
-
-<div class="course-icon">
-
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
-
-<rect x="3" y="4" width="18" height="14" rx="2"/>
-
-<path d="M8 10h8M8 14h5"/>
-
-</svg>
-
-</div>
-
-<h3>AI Video Creation</h3>
-
-<p>
-Learn the complete workflow for creating professional AI-powered videos from idea to final output.
-</p>
-
-</article>
-
-<article class="course-card">
-
-<div class="course-icon">
-
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
-
-<path d="M4 6h11v12H4zM15 9l5-2v10l-5-2"/>
-
-</svg>
-
-</div>
-
-<h3>AI Image &amp; Creative Design</h3>
-
-<p>
-Create AI images, posters, advertisements, thumbnails and professional visual assets.
-</p>
-
-</article>
-
-<article class="course-card">
-
-<div class="course-icon">
-
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
-
-<path d="M4 20l4-11 4 7 3-4 5 8"/>
-
-</svg>
-
-</div>
-
-<h3>Prompt Engineering</h3>
-
-<p>
-Learn to write effective prompts that consistently produce better AI-generated results.
-</p>
-
-</article>
-
-<article class="course-card">
-
-<div class="course-icon">
-
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
-
-<path d="M3 5h18v10H3zM8 21h8M12 15v6"/>
-
-</svg>
-
-</div>
-
-<h3>AI Business Video Creation</h3>
-
-<p>
-Create promotional, marketing and business videos using modern AI workflows.
-</p>
-
-</article>
-
-<article class="course-card">
-
-<div class="course-icon">
-
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
-
-<path d="M12 3l2.5 5.5L20 9l-4.2 3.8L17 19l-5-3-5 3 1.2-6.2L4 9l5.5-.5z"/>
-
-</svg>
-
-</div>
-
-<h3>AI Creative &amp; Editing</h3>
-
-<p>
-Learn AI-powered editing, Canva AI, Gamma AI and complete creative production workflows.
-</p>
-
-</article>
-
-</div>
-
-<!-- ================= COMPLETE AI VIDEO CREATION COURSE ================= -->
-
-<div class="course-syllabus">
-
-<div class="section-head reveal">
-
-<span class="kicker">Complete course syllabus</span>
-
-<h2>
-The Complete AI Video Creation Master Course™
-</h2>
-
-<p>
-Learn AI Video Creation From Basics to Advanced.
-</p>
-
-</div>
-
-<div class="syllabus-grid reveal">
-
-<article class="syllabus-card">
-
-<span class="lesson-number">LESSON 01</span>
-
-<h3>What Is AI Video Creation?</h3>
-
-<p>
-Understand AI video creation and how it is transforming content creation.
-</p>
-
-</article>
-
-<article class="syllabus-card">
-
-<span class="lesson-number">LESSON 02</span>
-
-<h3>What Tools Do We Cover in This Course?</h3>
-
-<p>
-Explore the essential AI tools used throughout the course.
-</p>
-
-</article>
-
-<article class="syllabus-card">
-
-<span class="lesson-number">LESSON 03</span>
-
-<h3>Prompt Engineering Basics</h3>
-
-<p>
-Learn how to write effective prompts for better AI-generated results.
-</p>
-
-</article>
-
-<article class="syllabus-card">
-
-<span class="lesson-number">LESSON 04</span>
-
-<h3>AI Image Creation</h3>
-
-<p>
-Create high-quality AI images and visual assets.
-</p>
-
-</article>
-
-<article class="syllabus-card">
-
-<span class="lesson-number">LESSON 05</span>
-
-<h3>AI Avatar Creation</h3>
-
-<p>
-Create AI avatars and digital presenters.
-</p>
-
-</article>
-
-<article class="syllabus-card">
-
-<span class="lesson-number">LESSON 06</span>
-
-<h3>AI Video Creation</h3>
-
-<p>
-Learn how to generate engaging AI videos from your ideas.
-</p>
-
-</article>
-
-<article class="syllabus-card">
-
-<span class="lesson-number">LESSON 07</span>
-
-<h3>AI Story Creation</h3>
-
-<p>
-Create stories, scenes, characters, and complete visual concepts using AI.
-</p>
-
-</article>
-
-<article class="syllabus-card">
-
-<span class="lesson-number">LESSON 08</span>
-
-<h3>AI Business Ad Creation</h3>
-
-<p>
-Create professional AI-powered advertisements for businesses and products.
-</p>
-
-</article>
-
-<article class="syllabus-card">
-
-<span class="lesson-number">LESSON 09</span>
-
-<h3>AI Business Video Creation</h3>
-
-<p>
-Create promotional and marketing videos using AI.
-</p>
-
-</article>
-
-<article class="syllabus-card">
-
-<span class="lesson-number">LESSON 10</span>
-
-<h3>AI Movie Creation</h3>
-
-<p>
-Learn the workflow for creating AI-powered cinematic stories and movie-style videos.
-</p>
-
-</article>
-
-<article class="syllabus-card">
-
-<span class="lesson-number">LESSON 11</span>
-
-<h3>AI Voiceover Creation</h3>
-
-<p>
-Generate professional AI voiceovers for your content.
-</p>
-
-</article>
-
-<article class="syllabus-card">
-
-<span class="lesson-number">LESSON 12</span>
-
-<h3>AI Song Creation</h3>
-
-<p>
-Create AI-powered songs and music for your creative projects.
-</p>
-
-</article>
-
-<article class="syllabus-card">
-
-<span class="lesson-number">LESSON 13</span>
-
-<h3>AI Poster &amp; Creative Design</h3>
-
-<p>
-Create posters, promotional creatives, and visual content using AI.
-</p>
-
-</article>
-
-<article class="syllabus-card">
-
-<span class="lesson-number">LESSON 14</span>
-
-<h3>AI Video Editing</h3>
-
-<p>
-Learn how to edit, enhance, and finalize your AI-generated videos.
-</p>
-
-</article>
-
-<article class="syllabus-card">
-
-<span class="lesson-number">LESSON 15</span>
-
-<h3>Canva AI Tutorial</h3>
-
-<p>
-Learn how to use Canva AI for creative design and content creation.
-</p>
-
-</article>
-
-<article class="syllabus-card">
-
-<span class="lesson-number">LESSON 16</span>
-
-<h3>Gamma AI Tutorial</h3>
-
-<p>
-Create professional presentations and visual content with Gamma AI.
-</p>
-
-</article>
-
-</div>
-
-<!-- ================= COURSE ACCESS ================= -->
-
-<div class="course-access reveal">
-
-<h3>
-Your Complete Course Access Includes
-</h3>
-
-<ul class="access-list">
-
-<li>✓ All Lessons</li>
-
-<li>✓ Complete Course Access</li>
-
-<li>✓ Lifetime Updates</li>
-
-<li>✓ Lifetime Support</li>
-
-<li>✓ Learn at Your Own Pace</li>
-
-<li>✓ Practical AI Video Creation Workflows</li>
-
-</ul>
-
-<div class="one-time">
-
-<span class="one-time-label">
-One-Time Payment
-</span>
-
-<span class="one-time-price">
-ONLY ₹999/-
-</span>
-
-<p class="one-time-note">
-Pay Once. Get Complete Course Access.
-</p>
-
-<a href="https://rzp.io/rzp/RQoClyz" class="btn btn-primary">
-Get Complete Course Access — ₹999
-</a>
-
-<p style="margin-top:18px;color:var(--text-dim);font-size:13px;">
-Powered by <strong>ENJOY CREATOR ACADEMY™</strong>
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= MENTOR ================= -->
-
-<section class="section" id="mentor">
-
-<div class="container">
-
-<div class="mentor-grid">
-
-<div class="mentor-photo reveal">
-
-<img src="assets/images/founder.jpg" alt="B. Sriram Marudhaiyappan, Founder and CEO of Enjoy Creator Academy" loading="lazy">
-
-<span class="tag">
-Founder & CEO
-</span>
-
-</div>
-
-<div class="mentor-copy reveal">
-
-<span class="kicker">
-Know your mentor
-</span>
-
-<h3 class="mentor-name">
-B. Sriram Marudhaiyappan
-</h3>
-
-<span class="mentor-role">
-Founder &amp; Executive CEO, Enjoy Creator Academy
-</span>
-
-<div class="mentor-bio">
-
-<p>
-My AI journey began at 16. After stepping away from traditional education, I went deep into artificial intelligence and technology — learning by building, testing and creating.
-</p>
-
-<p>
-At 17, I started Enjoy Creator Academy with one goal: make practical AI education accessible to people who want to create, grow and build new opportunities — in a language and a way that actually makes sense.
-</p>
-
-</div>
-
-<div class="mentor-stats">
-
-<div class="stat">
-
-<b>200+</b>
+<b>
+200+
+</b>
 
 <span>
-creators transformed in 6 months of 2026
+creators trained in 2026
 </span>
 
 </div>
 
+
 <div class="stat">
 
-<b>16</b>
+<b>
+16
+</b>
 
 <span>
-age the AI journey began
+complete AI video creation lessons
 </span>
 
 </div>
 
+
 <div class="stat">
 
-<b>17</b>
+<b>
+17
+</b>
 
 <span>
 age Enjoy Creator Academy was founded
@@ -801,15 +590,688 @@ age Enjoy Creator Academy was founded
 
 </div>
 
+
 </div>
 
-<a href="https://srirammarudhaiyappan.online" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top:28px;padding:14px 24px;border-radius:14px;font-weight:700;letter-spacing:.2px;box-shadow:0 12px 30px rgba(255,255,255,.12);">
 
-Visit - srirammarudhaiyappan.online
+</div>
 
-<span aria-hidden="true">↗</span>
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     COURSES
+======================================================= -->
+
+<section
+class="section"
+id="courses">
+
+
+<div class="container">
+
+
+<div class="section-head reveal">
+
+
+<span class="kicker">
+What we teach
+</span>
+
+
+<h2>
+Everything you need to work with AI, in one place.
+</h2>
+
+
+<p>
+From understanding what AI is to creating professional
+AI-powered videos, every lesson is hands-on, practical,
+and built for real output.
+</p>
+
+
+</div>
+
+
+
+<div class="course-grid reveal">
+
+
+<article class="course-card">
+
+<div class="course-icon">
+
+<svg
+width="22"
+height="22"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="1.7">
+
+<circle
+cx="12"
+cy="12"
+r="3"/>
+
+<path
+d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/>
+
+</svg>
+
+</div>
+
+
+<h3>
+What is AI &amp; why it matters
+</h3>
+
+
+<p>
+Build a real, working understanding of artificial
+intelligence and how to use it properly.
+</p>
+
+</article>
+
+
+
+<article class="course-card">
+
+<div class="course-icon">
+
+<svg
+width="22"
+height="22"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="1.7">
+
+<rect
+x="3"
+y="4"
+width="18"
+height="14"
+rx="2"/>
+
+<path
+d="M8 10h8M8 14h5"/>
+
+</svg>
+
+</div>
+
+
+<h3>
+AI Video Creation
+</h3>
+
+
+<p>
+Learn the complete workflow for creating professional
+AI-powered videos from idea to final output.
+</p>
+
+</article>
+
+
+
+<article class="course-card">
+
+<div class="course-icon">
+
+<svg
+width="22"
+height="22"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="1.7">
+
+<path
+d="M4 6h11v12H4zM15 9l5-2v10l-5-2"/>
+
+</svg>
+
+</div>
+
+
+<h3>
+AI Image &amp; Creative Design
+</h3>
+
+
+<p>
+Create AI images, posters, advertisements,
+thumbnails and professional visual assets.
+</p>
+
+</article>
+
+
+
+<article class="course-card">
+
+<div class="course-icon">
+
+<svg
+width="22"
+height="22"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="1.7">
+
+<path
+d="M4 20l4-11 4 7 3-4 5 8"/>
+
+</svg>
+
+</div>
+
+
+<h3>
+Prompt Engineering
+</h3>
+
+
+<p>
+Learn to write effective prompts that consistently
+produce better AI-generated results.
+</p>
+
+</article>
+
+
+
+<article class="course-card">
+
+<div class="course-icon">
+
+<svg
+width="22"
+height="22"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="1.7">
+
+<path
+d="M3 5h18v10H3zM8 21h8M12 15v6"/>
+
+</svg>
+
+</div>
+
+
+<h3>
+AI Business Video Creation
+</h3>
+
+
+<p>
+Create promotional, marketing and business videos
+using modern AI workflows.
+</p>
+
+</article>
+
+
+
+<article class="course-card">
+
+<div class="course-icon">
+
+<svg
+width="22"
+height="22"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="1.7">
+
+<path
+d="M12 3l2.5 5.5L20 9l-4.2 3.8L17 19l-5-3-5 3 1.2-6.2L4 9l5.5-.5z"/>
+
+</svg>
+
+</div>
+
+
+<h3>
+AI Creative &amp; Editing
+</h3>
+
+
+<p>
+Learn AI-powered editing, Canva AI, Gamma AI and
+complete creative production workflows.
+</p>
+
+</article>
+
+
+</div>
+
+
+
+<!-- =======================================================
+     COMPLETE COURSE
+======================================================= -->
+
+<div class="course-syllabus">
+
+
+<div class="section-head reveal">
+
+
+<span class="kicker">
+Complete course syllabus
+</span>
+
+
+<h2>
+The Complete AI Video Creation Master Course™
+</h2>
+
+
+<p>
+Learn AI Video Creation From Basics to Advanced
+</p>
+
+
+</div>
+
+
+
+<div class="syllabus-grid reveal">
+
+
+<article class="syllabus-card">
+
+<span class="lesson-number">
+LESSON 01
+</span>
+
+<h3>
+What Is AI Video Creation?
+</h3>
+
+<p>
+Understand AI video creation and how it is transforming
+content creation.
+</p>
+
+</article>
+
+
+
+<article class="syllabus-card">
+
+<span class="lesson-number">
+LESSON 02
+</span>
+
+<h3>
+What Tools Do We Cover in This Course?
+</h3>
+
+<p>
+Explore the essential AI tools used throughout the course.
+</p>
+
+</article>
+
+
+
+<article class="syllabus-card">
+
+<span class="lesson-number">
+LESSON 03
+</span>
+
+<h3>
+Prompt Engineering Basics
+</h3>
+
+<p>
+Learn how to write effective prompts for better
+AI-generated results.
+</p>
+
+</article>
+
+
+
+<article class="syllabus-card">
+
+<span class="lesson-number">
+LESSON 04
+</span>
+
+<h3>
+AI Image Creation
+</h3>
+
+<p>
+Create high-quality AI images and visual assets.
+</p>
+
+</article>
+
+
+
+<article class="syllabus-card">
+
+<span class="lesson-number">
+LESSON 05
+</span>
+
+<h3>
+AI Avatar Creation
+</h3>
+
+<p>
+Create AI avatars and digital presenters.
+</p>
+
+</article>
+
+
+
+<article class="syllabus-card">
+
+<span class="lesson-number">
+LESSON 06
+</span>
+
+<h3>
+AI Video Creation
+</h3>
+
+<p>
+Learn how to generate engaging AI videos from your ideas.
+</p>
+
+</article>
+
+
+
+<article class="syllabus-card">
+
+<span class="lesson-number">
+LESSON 07
+</span>
+
+<h3>
+AI Story Creation
+</h3>
+
+<p>
+Create stories, scenes, characters, and complete
+visual concepts using AI.
+</p>
+
+</article>
+
+
+
+<article class="syllabus-card">
+
+<span class="lesson-number">
+LESSON 08
+</span>
+
+<h3>
+AI Business Ad Creation
+</h3>
+
+<p>
+Create professional AI-powered advertisements
+for businesses and products.
+</p>
+
+</article>
+
+
+
+<article class="syllabus-card">
+
+<span class="lesson-number">
+LESSON 09
+</span>
+
+<h3>
+AI Business Video Creation
+</h3>
+
+<p>
+Create promotional and marketing videos using AI.
+</p>
+
+</article>
+
+
+
+<article class="syllabus-card">
+
+<span class="lesson-number">
+LESSON 10
+</span>
+
+<h3>
+AI Movie Creation
+</h3>
+
+<p>
+Learn the workflow for creating AI-powered cinematic
+stories and movie-style videos.
+</p>
+
+</article>
+
+
+
+<article class="syllabus-card">
+
+<span class="lesson-number">
+LESSON 11
+</span>
+
+<h3>
+AI Voiceover Creation
+</h3>
+
+<p>
+Generate professional AI voiceovers for your content.
+</p>
+
+</article>
+
+
+
+<article class="syllabus-card">
+
+<span class="lesson-number">
+LESSON 12
+</span>
+
+<h3>
+AI Song Creation
+</h3>
+
+<p>
+Create AI-powered songs and music for your creative projects.
+</p>
+
+</article>
+
+
+
+<article class="syllabus-card">
+
+<span class="lesson-number">
+LESSON 13
+</span>
+
+<h3>
+AI Poster &amp; Creative Design
+</h3>
+
+<p>
+Create posters, promotional creatives, and visual
+content using AI.
+</p>
+
+</article>
+
+
+
+<article class="syllabus-card">
+
+<span class="lesson-number">
+LESSON 14
+</span>
+
+<h3>
+AI Video Editing
+</h3>
+
+<p>
+Learn how to edit, enhance, and finalize your
+AI-generated videos.
+</p>
+
+</article>
+
+
+
+<article class="syllabus-card">
+
+<span class="lesson-number">
+LESSON 15
+</span>
+
+<h3>
+Canva AI Tutorial
+</h3>
+
+<p>
+Learn how to use Canva AI for creative design
+and content creation.
+</p>
+
+</article>
+
+
+
+<article class="syllabus-card">
+
+<span class="lesson-number">
+LESSON 16
+</span>
+
+<h3>
+Gamma AI Tutorial
+</h3>
+
+<p>
+Create professional presentations and visual
+content with Gamma AI.
+</p>
+
+</article>
+
+
+</div>
+
+
+
+<!-- =======================================================
+     ACCESS
+======================================================= -->
+
+<div class="course-access reveal">
+
+
+<h3>
+Your Complete Course Access Includes
+</h3>
+
+
+<ul class="access-list">
+
+<li>
+✓ All Lessons
+</li>
+
+<li>
+✓ Complete Course Access
+</li>
+
+<li>
+✓ Lifetime Updates
+</li>
+
+<li>
+✓ Lifetime Support
+</li>
+
+<li>
+✓ Learn at Your Own Pace
+</li>
+
+<li>
+✓ Practical AI Video Creation Workflows
+</li>
+
+</ul>
+
+
+<div class="one-time">
+
+
+<span class="one-time-label">
+One-Time Payment
+</span>
+
+
+<span class="one-time-price">
+ONLY ₹999/-
+</span>
+
+
+<p class="one-time-note">
+Pay Once. Get Complete Course Access.
+</p>
+
+
+<a
+href="https://rzp.io/rzp/Upp96JYM"
+class="btn btn-primary">
+
+Get Complete Course Access — ₹999
 
 </a>
+
+
+<p
+style="margin-top:18px;color:var(--text-dim);font-size:13px;">
+
+Powered by
+<strong>
+ENJOY CREATOR ACADEMY™
+</strong>
+
+</p>
+
+
+</div>
 
 </div>
 
@@ -819,33 +1281,195 @@ Visit - srirammarudhaiyappan.online
 
 </section>
 
-<!-- ================= STUDENT FEEDBACK ================= -->
 
-<section class="section" id="feedback">
+
+<!-- =======================================================
+     MENTOR
+======================================================= -->
+
+<section
+class="section"
+id="mentor">
+
 
 <div class="container">
 
+
+<div class="mentor-grid">
+
+
+<div class="mentor-photo reveal">
+
+
+<img
+src="assets/images/founder.jpg"
+alt="B. Sriram Marudhaiyappan, Founder and CEO of Enjoy Creator Academy"
+loading="lazy">
+
+
+<span class="tag">
+Founder &amp; CEO
+</span>
+
+
+</div>
+
+
+
+<div class="mentor-copy reveal">
+
+
+<span class="kicker">
+Know your mentor
+</span>
+
+
+<h3 class="mentor-name">
+B. Sriram Marudhaiyappan
+</h3>
+
+
+<span class="mentor-role">
+Founder &amp; Executive CEO, Enjoy Creator Academy
+</span>
+
+
+<div class="mentor-bio">
+
+<p>
+My AI journey began at 16. After stepping away from
+traditional education, I went deep into artificial
+intelligence and technology — learning by building,
+testing and creating.
+</p>
+
+
+<p>
+At 17, I started Enjoy Creator Academy with one goal:
+make practical AI education accessible to people who
+want to create, grow and build new opportunities —
+in a language and a way that actually makes sense.
+</p>
+
+</div>
+
+
+
+<div class="mentor-stats">
+
+
+<div class="stat">
+
+<b>
+200+
+</b>
+
+<span>
+creators transformed in 6 months of 2026
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<b>
+16
+</b>
+
+<span>
+age the AI journey began
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<b>
+17
+</b>
+
+<span>
+age Enjoy Creator Academy was founded
+</span>
+
+</div>
+
+
+</div>
+
+
+
+<a
+href="https://srirammarudhaiyappan.online"
+target="_blank"
+rel="noopener noreferrer"
+class="btn btn-primary"
+style="margin-top:28px;padding:14px 24px;border-radius:14px;font-weight:700;letter-spacing:.2px;box-shadow:0 12px 30px rgba(255,255,255,.12);">
+
+Visit - srirammarudhaiyappan.online
+
+<span aria-hidden="true">
+↗
+</span>
+
+</a>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     STUDENT FEEDBACK
+======================================================= -->
+
+<section
+class="section"
+id="feedback">
+
+
+<div class="container">
+
+
 <div class="section-head reveal">
+
 
 <span class="kicker">
 In their own words
 </span>
 
+
 <h2>
 Our students, on camera.
 </h2>
 
+
 <p>
-Real feedback from creators who went through our classes — no scripts, just results.
+Real feedback from creators who went through our classes —
+no scripts, just results.
 </p>
+
 
 </div>
 
+
+
 <div class="feedback-grid reveal">
+
 
 <article class="feedback-card">
 
+
 <div class="feedback-frame">
+
 
 <iframe
 src="https://www.youtube.com/embed/Ld6iSbZVHXE?rel=0&modestbranding=1"
@@ -856,17 +1480,24 @@ allowfullscreen
 referrerpolicy="strict-origin-when-cross-origin">
 </iframe>
 
+
 </div>
+
 
 <p class="feedback-name">
 Student Feedback · 01
 </p>
 
+
 </article>
+
+
 
 <article class="feedback-card">
 
+
 <div class="feedback-frame">
+
 
 <iframe
 src="https://www.youtube.com/embed/Qyh2f0Qc8zE?rel=0&modestbranding=1"
@@ -877,17 +1508,24 @@ allowfullscreen
 referrerpolicy="strict-origin-when-cross-origin">
 </iframe>
 
+
 </div>
+
 
 <p class="feedback-name">
 Student Feedback · 02
 </p>
 
+
 </article>
+
+
 
 <article class="feedback-card">
 
+
 <div class="feedback-frame">
+
 
 <iframe
 src="https://www.youtube.com/embed/CZJgdfQBS98?rel=0&modestbranding=1"
@@ -898,17 +1536,24 @@ allowfullscreen
 referrerpolicy="strict-origin-when-cross-origin">
 </iframe>
 
+
 </div>
+
 
 <p class="feedback-name">
 Student Feedback · 03
 </p>
 
+
 </article>
+
+
 
 <article class="feedback-card">
 
+
 <div class="feedback-frame">
+
 
 <iframe
 src="https://www.youtube.com/embed/JDRdID_DXOQ?rel=0&modestbranding=1"
@@ -919,13 +1564,17 @@ allowfullscreen
 referrerpolicy="strict-origin-when-cross-origin">
 </iframe>
 
+
 </div>
+
 
 <p class="feedback-name">
 Student Feedback · 04
 </p>
 
+
 </article>
+
 
 </div>
 
@@ -933,77 +1582,136 @@ Student Feedback · 04
 
 </section>
 
-<!-- ================= ACHIEVEMENTS / CERTIFICATES ================= -->
 
-<section class="section" id="achievements">
+
+<!-- =======================================================
+     CERTIFICATES
+======================================================= -->
+
+<section
+class="section"
+id="achievements">
+
 
 <div class="container">
 
+
 <div class="section-head reveal">
+
 
 <span class="kicker">
 Achievements of our students
 </span>
 
+
 <h2>
 Certified, and ready to create.
 </h2>
 
+
 <p>
-Every student who completes a course earns a certificate of completion. Here are a few of ours.
+Every student who completes a course earns a certificate
+of completion. Here are a few of ours.
 </p>
 
+
 </div>
 
-<div class="cert-grid reveal" id="certGrid">
 
-<div class="cert-card" data-full="assets/certificates/certificate-1.jpg">
 
-<img src="assets/certificates/certificate-1.jpg" alt="Certificate of completion — AI Video Creation Master Class" loading="lazy">
+<div
+class="cert-grid reveal"
+id="certGrid">
+
+
+<div
+class="cert-card"
+data-full="assets/certificates/certificate-1.jpg">
+
+<img
+src="assets/certificates/certificate-1.jpg"
+alt="Certificate of completion"
+loading="lazy">
 
 <span class="cert-glow"></span>
 
 </div>
 
-<div class="cert-card" data-full="assets/certificates/certificate-2.jpg">
 
-<img src="assets/certificates/certificate-2.jpg" alt="Certificate of completion — AI Video Creation Master Class" loading="lazy">
 
-<span class="cert-glow"></span>
+<div
+class="cert-card"
+data-full="assets/certificates/certificate-2.jpg">
 
-</div>
-
-<div class="cert-card" data-full="assets/certificates/certificate-3.jpg">
-
-<img src="assets/certificates/certificate-3.jpg" alt="Certificate of completion — AI Video Creation Master Class" loading="lazy">
-
-<span class="cert-glow"></span>
-
-</div>
-
-<div class="cert-card" data-full="assets/certificates/certificate-4.jpg">
-
-<img src="assets/certificates/certificate-4.jpg" alt="Certificate of completion — AI Video Creation Master Class" loading="lazy">
+<img
+src="assets/certificates/certificate-2.jpg"
+alt="Certificate of completion"
+loading="lazy">
 
 <span class="cert-glow"></span>
 
 </div>
 
-<div class="cert-card" data-full="assets/certificates/certificate-5.jpg">
 
-<img src="assets/certificates/certificate-5.jpg" alt="Certificate of completion — AI Video Creation Master Class" loading="lazy">
+
+<div
+class="cert-card"
+data-full="assets/certificates/certificate-3.jpg">
+
+<img
+src="assets/certificates/certificate-3.jpg"
+alt="Certificate of completion"
+loading="lazy">
 
 <span class="cert-glow"></span>
 
 </div>
 
-<div class="cert-card" data-full="assets/certificates/certificate-6.jpg">
 
-<img src="assets/certificates/certificate-6.jpg" alt="Certificate of completion — AI Video Creation Master Class" loading="lazy">
+
+<div
+class="cert-card"
+data-full="assets/certificates/certificate-4.jpg">
+
+<img
+src="assets/certificates/certificate-4.jpg"
+alt="Certificate of completion"
+loading="lazy">
 
 <span class="cert-glow"></span>
 
 </div>
+
+
+
+<div
+class="cert-card"
+data-full="assets/certificates/certificate-5.jpg">
+
+<img
+src="assets/certificates/certificate-5.jpg"
+alt="Certificate of completion"
+loading="lazy">
+
+<span class="cert-glow"></span>
+
+</div>
+
+
+
+<div
+class="cert-card"
+data-full="assets/certificates/certificate-6.jpg">
+
+<img
+src="assets/certificates/certificate-6.jpg"
+alt="Certificate of completion"
+loading="lazy">
+
+<span class="cert-glow"></span>
+
+</div>
+
 
 </div>
 
@@ -1011,25 +1719,39 @@ Every student who completes a course earns a certificate of completion. Here are
 
 </section>
 
-<!-- ================= FAQ ================= -->
 
-<section class="section" id="faq">
+
+<!-- =======================================================
+     FAQ
+======================================================= -->
+
+<section
+class="section"
+id="faq">
+
 
 <div class="container">
 
+
 <div class="section-head reveal">
+
 
 <span class="kicker">
 Frequently asked questions
 </span>
 
+
 <h2>
 Before you register, read this.
 </h2>
 
+
 </div>
 
+
+
 <div class="faq-list reveal">
+
 
 <details class="faq-item">
 
@@ -1038,10 +1760,14 @@ Do I need any prior experience with AI or design to join?
 </summary>
 
 <div class="faq-a">
-No. The course is built for complete beginners. We start from the basics and build up to advanced AI video creation step by step.
+No. The course is built for complete beginners. We start
+from the basics and build up to advanced AI video creation
+step by step.
 </div>
 
 </details>
+
+
 
 <details class="faq-item">
 
@@ -1050,10 +1776,14 @@ What do I get after purchasing the course?
 </summary>
 
 <div class="faq-a">
-You get complete course access covering all 16 lessons, practical AI video creation workflows, lifetime updates and lifetime support.
+You get complete course access covering all 16 lessons,
+practical AI video creation workflows, lifetime updates
+and lifetime support.
 </div>
 
 </details>
+
+
 
 <details class="faq-item">
 
@@ -1062,10 +1792,13 @@ Will I get a certificate after completing the course?
 </summary>
 
 <div class="faq-a">
-Yes. Students who complete the course receive an official Enjoy Creator Academy certificate of completion.
+Yes. Students who complete the course receive an official
+Enjoy Creator Academy certificate of completion.
 </div>
 
 </details>
+
+
 
 <details class="faq-item">
 
@@ -1074,10 +1807,14 @@ Is the course in Tamil or English?
 </summary>
 
 <div class="faq-a">
-The course is designed to be easy to follow, with Tamil explanations and English technical terms and on-screen tool instructions where required.
+The course is designed to be easy to follow, with Tamil
+explanations and English technical terms and on-screen
+tool instructions where required.
 </div>
 
 </details>
+
+
 
 <details class="faq-item">
 
@@ -1086,10 +1823,13 @@ Can I learn at my own pace?
 </summary>
 
 <div class="faq-a">
-Yes. The course includes complete access and is designed so you can learn and practice at your own pace.
+Yes. The course includes complete access and is designed
+so you can learn and practice at your own pace.
 </div>
 
 </details>
+
+
 
 <details class="faq-item">
 
@@ -1098,10 +1838,14 @@ Can I get a refund after purchasing?
 </summary>
 
 <div class="faq-a">
-Registrations are non-refundable once confirmed, since course access is provided after purchase. Please see our Refund Policy for full details.
+Registrations are non-refundable once confirmed, since
+course access is provided after purchase. Please see our
+Refund Policy for full details.
 </div>
 
 </details>
+
+
 
 <details class="faq-item">
 
@@ -1110,10 +1854,13 @@ Do I need to buy any paid AI tools?
 </summary>
 
 <div class="faq-a">
-No. We introduce free and low-cost AI tools first and explain paid options where they may be useful.
+No. We introduce free and low-cost AI tools first and
+explain paid options where they may be useful.
 </div>
 
 </details>
+
+
 
 <details class="faq-item">
 
@@ -1122,10 +1869,14 @@ Is this course only for YouTubers and content creators?
 </summary>
 
 <div class="faq-a">
-Not at all. Business owners, students, marketers, freelancers and creators can use these AI video and creative skills in their own work.
+Not at all. Business owners, students, marketers,
+freelancers and creators can use these AI video and
+creative skills in their own work.
 </div>
 
 </details>
+
+
 
 <details class="faq-item">
 
@@ -1134,10 +1885,14 @@ How is this different from free tutorials?
 </summary>
 
 <div class="faq-a">
-The course provides a structured 16-lesson roadmap, practical workflows and complete course access instead of scattered tutorials.
+The course provides a structured 16-lesson roadmap,
+practical workflows and complete course access instead
+of scattered tutorials.
 </div>
 
 </details>
+
+
 
 <details class="faq-item">
 
@@ -1146,10 +1901,12 @@ How do I get support after purchasing?
 </summary>
 
 <div class="faq-a">
-You'll get access to our support system where our team can guide you with questions related to the course.
+You'll get access to our support system where our team
+can guide you with questions related to the course.
 </div>
 
 </details>
+
 
 </div>
 
@@ -1157,87 +1914,176 @@ You'll get access to our support system where our team can guide you with questi
 
 </section>
 
-<!-- ================= CONTACT ================= -->
 
-<section class="section" id="contact">
+
+<!-- =======================================================
+     CONTACT
+======================================================= -->
+
+<section
+class="section"
+id="contact">
+
 
 <div class="container">
 
+
 <div class="section-head reveal">
+
 
 <span class="kicker">
 Get in touch
 </span>
 
+
 <h2>
 Questions before you join? Talk to us.
 </h2>
 
+
 </div>
+
+
 
 <div class="contact-grid reveal">
 
-<a class="contact-card" href="https://wa.me/916381046840" target="_blank" rel="noopener noreferrer">
+
+<a
+class="contact-card"
+href="https://wa.me/916381046840"
+target="_blank"
+rel="noopener noreferrer">
+
 
 <div class="c-icon">
 
-<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+<svg
+width="20"
+height="20"
+viewBox="0 0 24 24"
+fill="currentColor">
 
-<path d="M12 2C6.5 2 2 6.4 2 11.9c0 1.9.5 3.6 1.5 5.2L2 22l5.1-1.3c1.5.8 3.2 1.2 4.9 1.2 5.5 0 10-4.4 10-9.9C22 6.4 17.5 2 12 2z" opacity=".15"/>
+<path
+d="M12 2C6.5 2 2 6.4 2 11.9c0 1.9.5 3.6 1.5 5.2L2 22l5.1-1.3c1.5.8 3.2 1.2 4.9 1.2 5.5 0 10-4.4 10-9.9C22 6.4 17.5 2 12 2z"
+opacity=".15"/>
 
-<path d="M17.3 14.4c-.3-.1-1.6-.8-1.8-.9-.2-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6l.4-.5c.1-.2.1-.3 0-.5-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.8.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.6-.4z"/>
+<path
+d="M17.3 14.4c-.3-.1-1.6-.8-1.8-.9-.2-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.1.2-.3.2-.6.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.6l.4-.5c.1-.2.1-.3 0-.5-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.8.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.6-.4z"/>
 
 </svg>
 
 </div>
 
-<h3>WhatsApp</h3>
 
-<p>+91 63810 46840</p>
+<h3>
+WhatsApp
+</h3>
+
+
+<p>
++91 63810 46840
+</p>
+
 
 </a>
 
-<a class="contact-card" href="mailto:work.enjoycreatoracademy@gmail.com">
+
+
+<a
+class="contact-card"
+href="mailto:work.enjoycreatoracademy@gmail.com">
+
 
 <div class="c-icon">
 
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+<svg
+width="20"
+height="20"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="1.7">
 
-<rect x="3" y="5" width="18" height="14" rx="2"/>
+<rect
+x="3"
+y="5"
+width="18"
+height="14"
+rx="2"/>
 
-<path d="M3 7l9 6 9-6"/>
+<path
+d="M3 7l9 6 9-6"/>
 
 </svg>
 
 </div>
 
-<h3>Email</h3>
 
-<p>work.enjoycreatoracademy@gmail.com</p>
+<h3>
+Email
+</h3>
+
+
+<p>
+work.enjoycreatoracademy@gmail.com
+</p>
+
 
 </a>
 
-<a class="contact-card" href="https://www.instagram.com/enjoycreatoracademy" target="_blank" rel="noopener noreferrer">
+
+
+<a
+class="contact-card"
+href="https://www.instagram.com/enjoycreatoracademy"
+target="_blank"
+rel="noopener noreferrer">
+
 
 <div class="c-icon">
 
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+<svg
+width="20"
+height="20"
+viewBox="0 0 24 24"
+fill="none"
+stroke="currentColor"
+stroke-width="1.7">
 
-<rect x="3" y="3" width="18" height="18" rx="5"/>
+<rect
+x="3"
+y="3"
+width="18"
+height="18"
+rx="5"/>
 
-<circle cx="12" cy="12" r="4"/>
+<circle
+cx="12"
+cy="12"
+r="4"/>
 
-<circle cx="17.5" cy="6.5" r="1"/>
+<circle
+cx="17.5"
+cy="6.5"
+r="1"/>
 
 </svg>
 
 </div>
 
-<h3>Instagram</h3>
 
-<p>@enjoycreatoracademy</p>
+<h3>
+Instagram
+</h3>
+
+
+<p>
+@enjoycreatoracademy
+</p>
+
 
 </a>
+
 
 </div>
 
@@ -1245,125 +2091,204 @@ Questions before you join? Talk to us.
 
 </section>
 
+
 </main>
 
-<!-- ================= FOOTER ================= -->
+
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
 
 <footer class="site-footer">
 
+
 <div class="container">
+
 
 <div class="footer-grid">
 
+
 <div class="footer-brand">
+
 
 <a href="#top" class="brand">
 
+
 <span class="brand-mark">
 
-<img src="ecalogo.jpg" alt="Enjoy Creator Academy Logo" height="40" width="40">
+<img
+src="ecalogo.jpg"
+alt="Enjoy Creator Academy Logo"
+height="40"
+width="40">
 
 </span>
+
 
 <span>
 ENJOY CREATOR ACADEMY
 </span>
 
+
 </a>
 
+
 <p>
-Practical AI education for creators, from Tamil Nadu — helping you learn, create and grow with artificial intelligence.
+Practical AI education for creators, from Tamil Nadu —
+helping you learn, create and grow with artificial intelligence.
 </p>
 
+
 </div>
+
+
 
 <div class="footer-col">
 
-<h4>Explore</h4>
+
+<h4>
+Explore
+</h4>
+
 
 <ul>
 
 <li>
-<a href="#courses">Courses</a>
+<a href="#courses">
+Courses
+</a>
 </li>
 
 <li>
-<a href="#mentor">Mentor</a>
+<a href="#mentor">
+Mentor
+</a>
 </li>
 
 <li>
-<a href="#feedback">Student Feedback</a>
+<a href="#feedback">
+Student Feedback
+</a>
 </li>
 
 <li>
-<a href="#faq">FAQ</a>
+<a href="#faq">
+FAQ
+</a>
 </li>
 
 <li>
-<a href="#contact">Contact</a>
+<a href="#contact">
+Contact
+</a>
 </li>
 
 </ul>
 
+
 </div>
+
+
 
 <div class="footer-col">
 
-<h4>Policies</h4>
+
+<h4>
+Policies
+</h4>
+
 
 <ul>
 
 <li>
-<a href="about.html">About Us</a>
+<a href="about.html">
+About Us
+</a>
 </li>
 
 <li>
-<a href="privacy-policy.html">Privacy Policy</a>
+<a href="privacy-policy.html">
+Privacy Policy
+</a>
 </li>
 
 <li>
-<a href="refund-policy.html">Refund Policy</a>
+<a href="refund-policy.html">
+Refund Policy
+</a>
 </li>
 
 <li>
-<a href="terms-conditions.html">Terms &amp; Conditions</a>
+<a href="terms-conditions.html">
+Terms &amp; Conditions
+</a>
 </li>
 
 </ul>
 
-</div>
 
 </div>
+
+
+</div>
+
+
 
 <div class="footer-bottom">
+
 
 <span>
 © 2026 Enjoy Creator Academy. All rights reserved.
 </span>
 
+
 <span>
 Tamil Nadu, India
 </span>
 
+
 </div>
+
 
 </div>
 
 </footer>
 
-<!-- ================= CERTIFICATE LIGHTBOX ================= -->
 
-<div class="lightbox" id="lightbox">
 
-<button class="lightbox-close" id="lightboxClose" aria-label="Close">
+<!-- =======================================================
+     CERTIFICATE LIGHTBOX
+======================================================= -->
+
+<div
+class="lightbox"
+id="lightbox">
+
+
+<button
+class="lightbox-close"
+id="lightboxClose"
+aria-label="Close">
+
 ×
+
 </button>
 
-<img src="" alt="Certificate preview" id="lightboxImg">
+
+<img
+src=""
+alt="Certificate preview"
+id="lightboxImg">
+
 
 </div>
 
+
+
 <script src="script.js"></script>
+
 
 </body>
 </html>
+```
